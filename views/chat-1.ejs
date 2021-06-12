@@ -1509,7 +1509,7 @@
 
                                 <div class="row align-items-center">
 
-                                    <!-- Close chat(mobile) -->
+                                    
                                     <div class="col-3 d-xl-none">
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">
@@ -2030,7 +2030,9 @@
 
                                                 <!-- Message: content -->
                                                 <div class="message-content bg-primary text-white">
-                                                    <div>Yeah, I'm going to meet a friend of mine at the department store. I have to buy some presents for my parents.</div>
+                                                    <% msgs.forEach(list=>{ %>
+                                                    <div><%= list.msg %></div>
+                                                    <% }) %>
 
                                                     <div class="mt-1">
                                                         <small class="opacity-65">8 mins ago</small>
@@ -2154,7 +2156,7 @@
                                             </a>
                                         </li>
 
-                                        <!-- Title(mobile) -->
+                                       
                                         <li class="text-center d-block d-lg-none">
                                             <h6 class="mb-n2">Bootstrap Themes</h6>
                                             <small class="text-muted">Chat Details</small>
@@ -2828,7 +2830,7 @@
                                             </a>
                                         </li>
 
-                                        <!-- Title(mobile) -->
+                                     
                                         <li class="text-center d-block d-lg-none">
                                             <h6 class="mb-n2">Bootstrap Themes</h6>
                                             <small class="text-muted">Add Members</small>
@@ -3183,7 +3185,7 @@
                                             </a>
                                         </li>
 
-                                        <!-- Title(mobile) -->
+                                       
                                         <li class="text-center d-block d-lg-none">
                                             <h6 class="mb-n2">William Wright</h6>
                                             <small class="text-muted">User Details</small>

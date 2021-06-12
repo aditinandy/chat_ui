@@ -19,13 +19,13 @@ con.on("open", function(){
 	console.log('connected');
 })
 
-app.get('/chat', (req, res) => {
-	res.render('chat-1.ejs');
-})
-
-// app.get('/fetch', (req, res) => {
-// 	res.render('chat-2.ejs');
+// app.get('/chat', (req, res) => {
+// 	res.render('chat-1.ejs');
 // })
+
+app.get('/fetch', (req, res) => {
+	res.render('chat-2.ejs');
+})
 
 app.post('/chat', async(req, res) => {
 	const upload = new crud_Chat({
@@ -33,21 +33,21 @@ app.post('/chat', async(req, res) => {
 	})
 	try{
 		const save = await upload.save();
-		res.redirect('/chat/fetch');
+		res.redirect('/chat');
 		res.json(save);
 	}catch(err){
 		res.send(err);
 	}
 })
 
-app.get('/chat/fetch', async(req, res, next) => {
+app.get('/chat', async(req, res, next) => {
 	try{
 		// let rand = Math.random();
-		const fetch = await crud_Chat.find({}).sort({_id:-1}).limit(1);
-		res.json(fetch);
-		// res.render("/chat", {
-		// 		lists: fetch
-		// });
+		const fetch = await crud_Chat.find();
+		// res.json(fetch);
+		res.render("chat-1", {
+				msgs: fetch
+		});
 	}catch{
 		res.send(error);
 	}
